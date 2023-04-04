@@ -3,9 +3,8 @@ import styled from 'styled-components';
 
 const data = [
     "Web Design",
-    "Development",
-    "Game Development",
-    "Reef Keeping",
+    "Game Dev",
+    "Reef Keeper",
 ]
 
 

@@ -1,5 +1,5 @@
-// import React, { useRef } from "react";
-
+import React, { useRef } from "react";
+import { useState } from "react";
 import emailjs from "@emailjs/browser";
 import styled from "styled-components";
 
@@ -39,7 +39,7 @@ const Input = styled.input`
   border: none;
 `;
 
-const Form = styled.h1`
+const Form = styled.form`
   display: flex;
   width: 500px;
   flex-direction: column;
@@ -64,8 +64,10 @@ const Button = styled.button`
 
 
 
+const Contact = () => {
 
-// const [success,setSuccess] = useState(null);
+const ref = useRef();
+const [success, setSuccess] = useState(null);
 
 const handleSubmit = (e) => {
   e.preventDefault();
@@ -74,32 +76,32 @@ const handleSubmit = (e) => {
     .sendForm(
       "service_4wee3nv",
       "template_0cnhqyn",
-      form.current,
+      ref.current,
       "XnU9w1Izyj6h3TFUO"
     )
     .then(
       (result) => {
-            console.log(result.text);
-            setSuccess(true);
+        console.log(result.text);
+        setSuccess(true);
       },
       (error) => {
-          console.log(error.text);
-          setSuccess(false);
+        console.log(error.text);
+        setSuccess(false);
       }
     );
 };
 
-const Contact = () => {
   return (
     <Section>
       <Container>
         <Left>
-          <Form  onSubmit={handleSubmit}>
+          <Form ref={ref} onSubmit={handleSubmit}>
             <Title>contact Me</Title>
-            <Input placeholder="Name" />
-            <Input placeholder="Email" />
-            <TextArea placeholder="Message" row={10} />
-            <Button type="submit">Send</Button>
+            <Input placeholder="Name" name="name" />
+            <Input placeholder="Email" name="email"/>
+            <TextArea placeholder="Message" name="message"row={10} />
+                      <Button type="submit">Send</Button>
+                        {success && <span>Thanks, I'll reply ASAP</span>}
           </Form>
         </Left>
         <Right>coral</Right>

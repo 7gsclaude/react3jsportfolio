@@ -1,6 +1,12 @@
+import { MeshDistortMaterial } from '@react-three/drei';
 import React from 'react'
+import { Sphere } from '@react-three/drei';
 import styled from 'styled-components';
 import Navbar from "./Navbar";
+
+import { Canvas } from 'react-three-fiber';
+import { OrbitControls } from '@react-three/drei';
+ 
 
 const Section = styled.div`
   height: 100vh;
@@ -65,12 +71,12 @@ const Button = styled.button`
 
 // height 600 width 400px. wdith and height need to be even in order for border-radius to work .
 const Img = styled.img`
-  width: 80%;  
-  height: 80%;
+  width: 60%;  
+  height: 60%;
   object-fit: contain;
   position: absolute;
   top: 0;
-  bottom: 0;
+  bottom: 30%;
   right: 0;
   left: 0;
   margin: auto;
@@ -89,29 +95,36 @@ const Img = styled.img`
 
 const Hero = () => {
   return (
-      <Section>
-          <Navbar />
-          <Container>
-              <Left> 
-                  <Title> Corals, and Coding</Title>
-                  <WhatWeDo>
-                      <Line src="./img/line.png"/>
-                      <Subtitle>
-                          What I do 
-                      </Subtitle>
-                  </WhatWeDo>
-                  <Description> I love growing corals and programming</Description>
-                  <Button>
-                      Learn more
-                  </Button>
-              </Left>
-              <Right> 
-                  {/*3d model*/}
-                  <Img src="./img/rapunzeltorch.jpeg" />
-              </Right>
-          </Container>
-      </Section>
-  )
+    <Section>
+      <Navbar />
+      <Container>
+        <Left>
+          <Title> Corals, and Coding</Title>
+          <WhatWeDo>
+            <Line src="./img/line.png" />
+            <Subtitle>What I do</Subtitle>
+          </WhatWeDo>
+          <Description> I love growing corals and programming</Description>
+          <Button>Learn more</Button>
+        </Left>
+        <Right>
+          <Canvas camera={{ fov: 25, position: [5,30,30] }}>
+            <OrbitControls enableZoom={false} autoRotate />
+            <ambientLight intensity={1} />
+            <directionalLight position={[3, 2, 1]} />
+           <Sphere args={[2,400,600]} scale={3}>
+          <MeshDistortMaterial
+           color="#560094" 
+           attach="material" 
+           distort={0.5} 
+           speed={2}/>
+            </Sphere>
+          </Canvas>
+          <Img src="./img/rapunzeltorch.jpeg" />
+        </Right>
+      </Container>
+    </Section>
+  );
 }
 
 export default Hero

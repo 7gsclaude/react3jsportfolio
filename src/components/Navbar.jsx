@@ -5,20 +5,33 @@ const Section = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+
+@media only screen and (max-width: 780px) {
+    width: 100%;
+}
+
+
 `;
    //inside video it calls for 1400px width but I changed it to 100% to make it responsive
 const Container = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0px;
+  @media only screen and (max-width: 780px) {
     width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 0px;
+    padding: 10px;
 
-`
+  }
+`;
 const Links = styled.div`
   display: flex;
   align-items: center;
   gap: 20px;
+
+  
+
 `;
 
 const Logo = styled.img`
@@ -26,11 +39,13 @@ height: 50px;
 `
 
 const List = styled.ul`
-    display: flex;
-    gap: 20px;
-    list-style: none;
-
-`
+  display: flex;
+  gap: 20px;
+  list-style: none;
+  @media only screen and (max-width: 780px) {
+    width: 100%;
+  }
+`;
 const ListItem = styled.li`
     
 `

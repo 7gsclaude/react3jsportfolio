@@ -22,10 +22,21 @@ const Left = styled.div`
   display: flex;
   align-content: center;
   justify-content: flex-end;
+
+  @media only screen and (max-width: 780px) {
+    justify-content: center;
+  }
 `;
 
 const Right = styled.div`
   flex: 1;
+
+
+@media only screen and (max-width: 780px) {
+    display: none;
+}
+
+
 `;
 
 const Title = styled.h1`
@@ -44,6 +55,10 @@ const Form = styled.form`
   width: 500px;
   flex-direction: column;
   gap: 25px;
+
+  @media only screen and (max-width: 780px) {
+    width: 300px;
+  }
 `;
 
 const TextArea = styled.textarea`

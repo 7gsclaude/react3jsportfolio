@@ -24,6 +24,15 @@ const Container = styled.div`
  width: 90%;
  display: flex;
 justify-content: space-between;
+
+
+@media only screen and (max-width: 780px) {
+   width: 100%;
+    flex-direction: column;
+
+}
+
+
 `;
 
 const List = styled.ul`
@@ -40,6 +49,13 @@ const ListItems = styled.li`
   color: transparent;
   -webkit-text-stroke: 1px white;
   position: relative;
+
+
+  @media only screen and (max-width: 780px) {
+    font-size: 23px;
+    color: white;
+    -webkit-text-stroke: 0px;
+  }
 
   ::after {
     content: "${(props) => props.text}";
@@ -69,7 +85,13 @@ const Left = styled.div`
 flex: 1;
 display:flex;
 align-items: center;
+@media only screen and (max-width: 780px) {
 
+    padding: 20px;
+
+justify-content: center;
+
+}
 
 `;
 const Right = styled.div`

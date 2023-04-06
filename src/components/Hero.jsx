@@ -15,14 +15,25 @@ const Section = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
+
+  @media only screen and (max-width: 780px) {
+    height: 200vh;
+  }
 `;
 //width: 100% is to make it responsive but video has 1400px width
 const Container = styled.div`
-    height: 100vh;
+    height: 100%;
     width: 90%;
     scroll-snap-align: center;
     display: flex;
     justify-content: space-between ;
+
+    @media only screen and (max-width: 780px) {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+    }
 `
 const Left = styled.div`
 flex: 2;
@@ -30,15 +41,31 @@ display: flex;
 flex-direction: column;
 justify-content: center;
 gap: 20px;
-`
+@media only screen and (max-width: 780px) {
+    flex: 1;
+    align-items: center;
+
+    }
+`;
 const Right = styled.div`
 flex: 3;
 position: relative;
+
+@media only screen and (max-width: 780px) {
+    flex: 1;
+    width: 100%;
+}
 `;
 
 const Title = styled.h1`
     font-size: 74px;
-`
+
+
+    @media only screen and (max-width: 780px) {
+    text-align: center;
+}
+
+`;
 const WhatWeDo = styled.div`
     display: flex;
     align-items: center;
@@ -57,7 +84,13 @@ const Subtitle = styled.h2`
 const Description = styled.p`
     font-style: 24px;
     color: lightgray;
-`
+
+@media only screen and (max-width: 780px) {
+    padding: 20px;
+    text-align: center;
+}
+
+`;
 const Button = styled.button`
   background-color: #fc8b9e;
     color: white;
@@ -88,6 +121,23 @@ const Img = styled.img`
         transform: translateY(40px);
     }
   }
+
+
+  @media only screen and (max-width: 780px) {
+    width: 300px;
+    height: 300px;
+    bottom: 0%;
+
+
+    @keyframes animate{
+    to{
+        transform: translateY(20px);
+
+    }
+
+
+  }
+}
 
 `
 

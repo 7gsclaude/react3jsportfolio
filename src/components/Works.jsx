@@ -1,5 +1,9 @@
 import React from 'react'
 import styled from 'styled-components';
+import WebDesign from './WebDesign';
+import GameDev from './GameDev';
+import ReefKeeper from './ReefKeeper';
+
 
 const data = [
     "Web Design",
@@ -10,9 +14,10 @@ const data = [
 
 const Section = styled.div`
   height: 100vh;
- display:flex;
- justify-content: center;
+  display: flex;
+  justify-content: center;
   scroll-snap-align: center;
+  position: relative;
 `;
 //video  has width at 1400px i used 100% to make it respoohsive
 const Container = styled.div`
@@ -69,21 +74,27 @@ align-items: center;
 `;
 const Right = styled.div`
 flex: 1;
+
 `;
 
 const Works = () => {
+    const [work,setWork] = React.useState("Web Design")
     return (
       <Section>
         <Container>
           <Left>
             <List>
             {data.map((item) => (
-            <ListItems key={item} text={item}>{item}</ListItems>
+                <ListItems key={item} text={item} onClick={()=>setWork(item)}>
+                    {item}
+                </ListItems> 
             ))}
             </List>
             
           </Left>
-          <Right></Right>
+                <Right>
+                    {work === "Web Design" ? (<WebDesign/>) : work === "Game Dev" ? (<GameDev/>) : (<ReefKeeper/>)}
+          </Right>
         </Container>
 
       </Section>
